@@ -1,5 +1,7 @@
 package javaFights.missingNumbers;
 
+import java.util.Arrays;
+
 /**
  You are supposed to label a bunch of boxes with numbers from 0 to n, and all the labels are stored in the array arr. Unfortunately one of the labels is missing. Your task is to find it.
 
@@ -24,4 +26,19 @@ package javaFights.missingNumbers;
  The missing number.
  */
 public class MissingNumbers {
+    public static void main(String[] args) {
+        int[] arr = {3, 1, 0};
+        System.out.println(missingNumber(arr));
+    }
+
+    public static int missingNumber(int[] arr) {
+        Arrays.sort(arr);
+        int x = 0;
+        for(int a : arr){
+            if(x != a) break;
+            x++;
+        }
+        return x;
+    }
+
 }
