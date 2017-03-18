@@ -36,25 +36,19 @@ package javaFights.stringReformatting;
  */
 public class StringReformatting {
     public static String stringReformatting(String s, int k) {
-        String s1 ="";
-        int len = s.length(), num=0;
-        for(int i = 0; i < len; i++){
-            if(s.charAt(len - i - 1) != '-'){
-                if(num < k){
-                    num ++;
-                }else{
-                    s1 += '-';
-                    num = 1;
+        StringBuffer sb = new StringBuffer();
+        int j = 0;
+        for (int i = s.length() - 1; i >= 0; i--) {
+            char c = s.charAt(i);
+            if (c != '-') {
+                if (j == k) {
+                    j = 0;
+                    sb.append("-");
                 }
-                s1 += s.charAt(len - i - 1);
-            }else{
-                if(num == k){
-                    s1 += s.charAt(len - i - 1);
-                    num = 0;
-                }
+                j++;
+                sb.append(c);
             }
         }
-        StringBuffer sb = new StringBuffer(s1);
         return sb.reverse().toString();
     }
 
