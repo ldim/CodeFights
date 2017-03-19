@@ -27,7 +27,6 @@ package javaFights.isPowerOfTwo2;
  */
 public class IsPowerOfTwo2 {
     public static boolean isPowerOfTwo(long n) {
-
         return ((n & (n - 1)) == 0);
     }
 
